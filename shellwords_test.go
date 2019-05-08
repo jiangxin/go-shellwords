@@ -21,6 +21,8 @@ var testcases = []struct {
 	{`var "--bar baz"`, []string{`var`, `--bar baz`}},
 	{`var --"bar baz"`, []string{`var`, `--bar baz`}},
 	{`var  --"bar baz"`, []string{`var`, `--bar baz`}},
+	{"'C:\\Program Files\\MyApp.exe' --foo --bar", []string{"C:\\Program Files\\MyApp.exe", `--foo`, `--bar`}},
+	{"\"C:\\\\Program Files\\\\MyApp.exe\" --foo --bar", []string{"C:\\Program Files\\MyApp.exe", `--foo`, `--bar`}},
 }
 
 func TestSimple(t *testing.T) {
